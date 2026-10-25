@@ -10,9 +10,10 @@ def homePage():
     return flask.render_template("home.html")
 
 
-@app.route("/<word>")
-def findWord(word):
-    return {"word": word}
+@app.route("/get_deff/<input>")
+def getDeff(input: str):
+    print(input)
+    return input
 
 
 # Testing the server

@@ -1,21 +1,41 @@
+:root {
+  --dark: #222;
+  --light: white;
+  --purple: #4b4e6d;
+  --light_purple: #9395d3;
+}
 body {
   font-family: Arial, sans-serif;
   margin: 0;
-  background: #f5f5f5;
+  background: var(--purple);
 }
 nav {
-  background: #333;
+  background: var(--light);
   padding: 1rem;
 }
 nav a {
-  color: white;
+  color: var(--dark);
   margin-right: 1rem;
   text-decoration: none;
 }
 .container {
   max-width: 900px;
   margin: 2rem auto;
-  background: white;
+  background: var(--light);
   padding: 2rem;
   border-radius: 8px;
+}
+button {
+  color: var(--dark);
+  background-color: var(--light_purple);
+  margin-right: 1rem;
+  text-decoration: none;
+  border: 3px var(--dark);
+  border-radius: 10px;
+}
+button:hover {
+  color: var(--light);
+  background-color: var(--dark);
+  transition-duration: 300ms;
+  transition-timing-function: ease-in-out;
 }
