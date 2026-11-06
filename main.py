@@ -1,19 +1,26 @@
-import flask
+from flask import Flask, redirect, render_template, request, url_for
 
 
-app = flask.Flask(__name__)
+app = Flask(__name__)
 
 
 # Creating a basic website
-@app.route("/")
-def homePage():
-    return flask.render_template("home.html")
+@app.route("/", methods=["POST", "GET"])
+def home():
+    if request.method == "POST":
+        u_in = request.form["input"]
+        return redirect(url_for("result", u_in=u_in))
+    elif request.method == "GET":
+        return render_template("home.html")
 
-
-@app.route("/get_deff/<input>")
-def getDeff(input: str):
-    print(input)
-    return input
+@app.route("/<u_in>")
+def result(u_in):
+    print(u_in)
+    if request.method == "POST":
+        u_in = request.form["input"]
+        return redirect(url_for("result", u_in=u_in))
+    elif request.method == "GET":
+        return render_template("home.html")
 
 
 # Testing the server
